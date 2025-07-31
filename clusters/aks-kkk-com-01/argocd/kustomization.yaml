@@ -1,0 +1,14 @@
+namespace: argocd
+ 
+resources:
+  - namespace.yaml    # 네임스페이스가 없으면 생략 가능
+ 
+helmGlobals:
+  chartHome: ../../../base        # base 경로(argo-cd chart 포함 경로)
+helmCharts:
+  - name: argo-cd                # ../../../base/argo-cd/Chart.yaml이 있어야 함
+    version: 8.0.4               # 사용할 Chart 버전(디렉터리와 맞출 것)
+    releaseName: argocd
+    namespace: argocd
+    valuesFile: values.yaml      # 이 overlay만의 values
+    includeCRDs: false

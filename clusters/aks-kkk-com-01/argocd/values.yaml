@@ -1,0 +1,7 @@
+# 환경별 커스터마이즈 예시
+server:
+  replicas: 2
+  ingress:
+    enabled: true
+    hosts:
+      - argocd.company.com
